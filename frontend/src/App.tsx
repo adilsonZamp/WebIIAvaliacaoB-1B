@@ -4,13 +4,13 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { api } from './services/api'
+import { Client } from '../api/api'
 
 function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    api.get('/').then((response) => {
+    Client.get('/').then((response) => {
       console.log(response.data)
     })
     .catch((error) => {

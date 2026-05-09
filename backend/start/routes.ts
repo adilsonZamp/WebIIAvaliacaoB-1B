@@ -22,7 +22,6 @@ router
         router.post('signup', [controllers.NewAccount, 'store'])
         router.post('login', [controllers.AccessTokens, 'store'])
       })
-      .prefix('auth')
       .as('auth')
 
     router
@@ -30,8 +29,6 @@ router
         router.get('profile', [controllers.Profile, 'show'])
         router.post('logout', [controllers.AccessTokens, 'destroy'])
       })
-      .prefix('account')
       .as('profile')
       .use(middleware.auth())
   })
-  .prefix('/api/v1')
