@@ -1,19 +1,20 @@
 import { useEffect, useState, type FormEvent } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Client, setToken } from "../../../api/api";
+import { Client, getToken, setToken } from "../../../api/api";
+import { getDataUser, setDataUser } from "../../services/UserService";
 import { useNavigate } from 'react-router';
 
 interface LoginFormData {
     email: string;
-    password: string;
+    senha: string;
     remember: boolean;
 }
 
 export default function Login() {
     const [formData, setFormData] = useState<LoginFormData>({
         email: "",
-        password: "",
+        senha: "",
         remember: false,
     });
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -22,6 +23,9 @@ export default function Login() {
 
     useEffect(() => {
         document.title = 'Login';
+
+        //adicionar função para identificar se tem login no local storage e redireciona de acordo
+        //função secundária
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,22 +40,29 @@ export default function Login() {
         e.preventDefault();
         setError("");
 
-        if (!formData.email || !formData.password) {
+        if (!formData.email || !formData.senha) {
             setError("Por favor, preencha e-mail e senha.");
             return;
         }
 
-        // Aqui você integraria com sua API de autenticação
         Client.post('/login', {
             email: formData.email,
-            password: formData.password
+            password: formData.senha
         }).then(response => {
             if (response.status === 200) {
                 const load = response.data.data
-                //setDataUser(response.data.user)
                 console.log("Data: "+load.token)
+
+                setDataUser(load.user)
                 setToken(load.token)
-                navigate('/home');
+
+                if (load.user.tipo === 'Gerente') {
+                    console.log("gerente")
+                    navigate('/gerente/home');
+                } else if (load.user.tipo === 'Cliente') {
+                    console.log("cliente")
+                    navigate('/home');
+                }
             } else {
                 alert('não deu');
             }
@@ -106,7 +117,7 @@ export default function Login() {
                     </div>
 
                     <div className="mb-2">
-                        <label htmlFor="password" className="form-label fw-medium small">
+                        <label htmlFor="senha" className="form-label fw-medium small">
                             Senha
                         </label>
                         <div className="input-group">
@@ -115,10 +126,10 @@ export default function Login() {
                             </span>
                             <input
                                 type={showPassword ? "text" : "password"}
-                                id="password"
+                                id="senha"
                                 className="form-control border-end-0"
                                 placeholder="••••••••"
-                                value={formData.password}
+                                value={formData.senha}
                                 onChange={handleChange}
                                 autoComplete="current-password"
                             />
