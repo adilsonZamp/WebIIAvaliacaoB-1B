@@ -52,15 +52,14 @@ export default function Login() {
             if (response.status === 200) {
                 const load = response.data.data
                 console.log("Data: "+load.token)
+                console.log("Data: "+load.user.nome)
 
                 setDataUser(load.user)
                 setToken(load.token)
 
                 if (load.user.tipo === 'Gerente') {
-                    console.log("gerente")
                     navigate('/gerente/home');
                 } else if (load.user.tipo === 'Cliente') {
-                    console.log("cliente")
                     navigate('/home');
                 }
             } else {

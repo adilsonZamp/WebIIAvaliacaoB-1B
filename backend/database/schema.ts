@@ -33,18 +33,26 @@ export class AuthAccessTokenSchema extends BaseModel {
 }
 
 export class UserSchema extends BaseModel {
-  static $columns = ['createdAt', 'email', 'id', 'nome', 'password', 'tipo', 'updatedAt'] as const
+  static $columns = ['cidade', 'createdAt', 'email', 'estado', 'id', 'nome', 'numero', 'password', 'rua', 'tipo', 'updatedAt'] as const
   $columns = UserSchema.$columns
+  @column()
+  declare cidade: string | null
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
   @column()
   declare email: string
+  @column()
+  declare estado: string | null
   @column({ isPrimary: true })
   declare id: number
   @column()
   declare nome: string | null
+  @column()
+  declare numero: string | null
   @column({ serializeAs: null })
   declare password: string
+  @column()
+  declare rua: string | null
   @column()
   declare tipo: string | null
   @column.dateTime({ autoCreate: true, autoUpdate: true })
