@@ -63,9 +63,11 @@ export default function ClienteHomePage() {
         const atualizaDadosCliente = async () => {
             setLoadingDados(true);
             try {
-                //trazer dados do cliente
-                // setSaldo(s);
-                // setTransacoes(data.slice(0, 5));
+                const id = clienteLogado.id;
+                var response;
+                await response = Client.get('listarTransacoesCliente/{id}');
+                setSaldo(response.data.saldo);
+                // setTransacoes(response.data.tra.slice(0, 5));
             } catch {
                 // Dados não carregados — UI lida com null/[]
             } finally {
