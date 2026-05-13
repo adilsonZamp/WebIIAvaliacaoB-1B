@@ -42,6 +42,18 @@ const routes = {
     tokens: [{"old":"/listarClientes","type":0,"val":"listarClientes","end":""}],
     types: placeholder as Registry['users.listar_clientes_sem_conta']['types'],
   },
+  'transacaos.store': {
+    methods: ["POST"],
+    pattern: '/criarTransacao',
+    tokens: [{"old":"/criarTransacao","type":0,"val":"criarTransacao","end":""}],
+    types: placeholder as Registry['transacaos.store']['types'],
+  },
+  'transacaos.listar_transcoes_cliente': {
+    methods: ["GET","HEAD"],
+    pattern: '/listarTransacoesCliente/:id',
+    tokens: [{"old":"/listarTransacoesCliente/:id","type":0,"val":"listarTransacoesCliente","end":""},{"old":"/listarTransacoesCliente/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['transacaos.listar_transcoes_cliente']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

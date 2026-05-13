@@ -79,4 +79,28 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/users_controller').default['listarClientesSemConta']>>>
     }
   }
+  'transacaos.store': {
+    methods: ["POST"]
+    pattern: '/criarTransacao'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/transacaos_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/transacaos_controller').default['store']>>>
+    }
+  }
+  'transacaos.listar_transcoes_cliente': {
+    methods: ["GET","HEAD"]
+    pattern: '/listarTransacoesCliente/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/transacaos_controller').default['listarTranscoesCliente']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/transacaos_controller').default['listarTranscoesCliente']>>>
+    }
+  }
 }

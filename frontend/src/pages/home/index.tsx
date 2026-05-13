@@ -109,82 +109,39 @@ export default function ClienteHomePage() {
                 fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
             }}
         >
-            {/* ── Navbar ── */}
-            <nav
-                className="navbar px-3 px-md-4 py-2"
-                style={{
-                    background: "rgba(255,255,255,0.85)",
-                    backdropFilter: "blur(12px)",
-                    borderBottom: "1px solid #e8edf5",
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 100,
-                }}
-            >
-                <div className="container-fluid px-0 d-flex align-items-center justify-content-between">
-                    <div className="d-flex align-items-center gap-2">
-                        <div
-                            style={{
-                                width: 34,
-                                height: 34,
-                                borderRadius: 9,
-                                background: "#3b5bdb",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color: "#fff",
-                                fontSize: 16,
-                            }}
-                        >
-                            <i className="bi bi-bank2" />
-                        </div>
-                        <span className="fw-semibold" style={{ color: "#1a1a2e", fontSize: "0.95rem" }}>
-                            BanIF
-                        </span>
-                    </div>
+            {/* Navbar */}
+			<nav className="navbar navbar-expand-lg bg-white border-bottom shadow-sm px-4 py-2">
+				<div className="container-fluid px-0">
+					<a className="navbar-brand d-flex align-items-center gap-2 fw-semibold" href="#">
+						<div
+							className="d-flex align-items-center justify-content-center bg-primary text-white"
+							style={{ width: 34, height: 34, borderRadius: 8, fontSize: 16 }}
+						>
+							<i className="bi bi-bank2" />
+						</div>
+						BanIF
+					</a>
 
-                    <div className="d-flex align-items-center gap-3">
-                        <div className="d-flex align-items-center gap-2">
-                            <div
-                                style={{
-                                    width: 34,
-                                    height: 34,
-                                    borderRadius: "50%",
-                                    background: "#3b5bdb",
-                                    color: "#fff",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    fontSize: 12,
-                                    fontWeight: 600,
-                                }}
-                            >
-                                {iniciais}
-                            </div>
-                            <span
-                                className="d-none d-sm-block small fw-medium"
-                                style={{ color: "#374151" }}
-                            >
-                                {clienteLogado.nome.split(" ")[0]}
-                            </span>
-                        </div>
-                        <button
-                            className="btn btn-sm d-flex align-items-center gap-1"
-                            style={{
-                                border: "1px solid #e5e7eb",
-                                borderRadius: 8,
-                                color: "#6b7280",
-                                fontSize: "0.8rem",
-                                padding: "5px 10px",
-                            }}
-                            onClick={() => logout()}
-                        >
-                            <i className="bi bi-box-arrow-right" />
-                            <span className="d-none d-sm-inline">Sair</span>
-                        </button>
-                    </div>
-                </div>
-            </nav>
+					<div className="d-flex align-items-center gap-3 ms-auto">
+						<span className="text-muted small d-none d-md-block">
+							Agência {clienteLogado.agencia}
+						</span>
+						<div className="d-flex align-items-center gap-2">
+							<div
+								className="d-flex align-items-center justify-content-center bg-primary text-white fw-semibold"
+								style={{ width: 36, height: 36, borderRadius: "50%", fontSize: 13 }}
+							>
+								{clienteLogado.nome.charAt(0).toUpperCase()}
+							</div>
+							<span className="small fw-medium d-none d-sm-block">{clienteLogado.nome}</span>
+						</div>
+						<button className="btn btn-sm btn-outline-danger d-flex align-items-center gap-1" onClick={logout}>
+							<i className="bi bi-box-arrow-right" />
+							<span className="d-none d-sm-inline">Sair</span>
+						</button>
+					</div>
+				</div>
+			</nav>
 
             {/* ── Conteúdo ── */}
             <div className="container py-4" style={{ maxWidth: 640 }}>

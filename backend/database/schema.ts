@@ -51,6 +51,27 @@ export class ContaCorrenteSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class TransacaoSchema extends BaseModel {
+  static $columns = ['createdAt', 'data', 'id', 'idContaDestino', 'idContaOrigem', 'tipo', 'updatedAt', 'valor'] as const
+  $columns = TransacaoSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column.dateTime()
+  declare data: DateTime
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare idContaDestino: number
+  @column()
+  declare idContaOrigem: number
+  @column()
+  declare tipo: string
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+  @column()
+  declare valor: number
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['cidade', 'cpf', 'createdAt', 'email', 'estado', 'id', 'nome', 'numero', 'password', 'rua', 'tipo', 'updatedAt'] as const
   $columns = UserSchema.$columns

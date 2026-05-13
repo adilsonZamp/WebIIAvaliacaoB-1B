@@ -24,4 +24,8 @@ export interface ApiDefinition {
   users: {
     listarClientesSemConta: typeof routes['users.listar_clientes_sem_conta']
   }
+  transacaos: {
+    store: typeof routes['transacaos.store']
+    listarTranscoesCliente: typeof routes['transacaos.listar_transcoes_cliente']
+  }
 }

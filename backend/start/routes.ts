@@ -35,5 +35,7 @@ router
     router.group(() => {
       router.post('criarContaCorrente', [controllers.ContaCorrente, 'store'])
       router.get('listarClientes', [controllers.Users, 'listarClientesSemConta'])
+      router.post('criarTransacao', [controllers.Transacaos, 'store'])
+      router.get('listarTransacoesCliente/:id', [controllers.Transacaos, 'listarTranscoesCliente'])
     }).use(middleware.auth())
   })

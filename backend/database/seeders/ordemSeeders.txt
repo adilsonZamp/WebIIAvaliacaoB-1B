@@ -1,0 +1,7 @@
+node ace db:seed --files arquivo
+
+node ace db:seed --files database\seeders\user_seeder.ts
+node ace db:seed --files database\seeders\conta_corrente_seeder.ts
+node ace db:seed --files database\seeders\transacao_seeder.ts
+
+node ace db:seed --files database\seeders\user_seeder.ts database\seeders\conta_corrente_seeder.ts database\seeders\transacao_seeder.ts
