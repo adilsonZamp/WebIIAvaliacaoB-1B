@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import CadastrarClienteModal from "../../components/CadastrarClienteModal";
-import CriarContaCorrenteModal from "../../components/CriarContaCorrenteModal";
+import CadastrarClienteModal from "../../components/gerente/CadastrarClienteModal";
+import CriarContaCorrenteModal from "../../components/gerente/CriarContaCorrenteModal";
 import { Client, removeToken } from "../../../api/api";
 import { useNavigate } from "react-router-dom";
 import { getDataUser, removeDataUser } from "../../services/UserService";
@@ -34,7 +34,7 @@ export default function HomeGerente() {
 
 	useEffect(() => {
 		document.title = 'Home - Gerente';
-		if (!getDataUser()) {
+		if (!getDataUser() || getDataUser().tipo !== 'Gerente') {
 			navigate('/');
 		} else {
 			gerenteLogado.nome = getDataUser().nome;

@@ -5,6 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    {/* providers dos contextos necessários */}
     <RouterProvider router={router} />
   </StrictMode>,
 )

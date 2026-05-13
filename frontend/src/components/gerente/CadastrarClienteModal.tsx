@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Client } from "../../api/api";
-import axios, { AxiosError } from "axios";
+import { Client } from "../../../api/api";
+import axios from "axios";
 
 interface CadastrarClienteModalProps {
 	onClose: () => void;

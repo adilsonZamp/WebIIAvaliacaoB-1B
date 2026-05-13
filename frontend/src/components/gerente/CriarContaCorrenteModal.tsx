@@ -1,5 +1,5 @@
 import { useState, useEffect, type FormEvent } from "react";
-import { Client } from "../../api/api";
+import { Client } from "../../../api/api";
 import axios from "axios";
 
 interface Cliente {
