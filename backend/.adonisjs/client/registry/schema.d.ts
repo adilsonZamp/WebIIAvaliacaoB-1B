@@ -67,4 +67,16 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/conta_corrente_controller').default['store']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
+  'users.listar_clientes': {
+    methods: ["GET","HEAD"]
+    pattern: '/listarClientes'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/users_controller').default['listarClientes']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/users_controller').default['listarClientes']>>>
+    }
+  }
 }

@@ -79,11 +79,14 @@ export default function CadastrarClienteModal({
 
 		setLoading(true);
 		try {
+			console.log(cpf.replaceAll('.', '').replace('-', ''));
+			
 			await Client.post('/signup', {
 				nome: nomeCompleto,
 				email: email,
 				password: senha,
 				passwordConfirmation: confirmaSenha,
+				cpf: cpf.replaceAll('.', '').replace('-', ''),
 				tipo: "Cliente",
 				//opcionais
 				cidade: cidade,

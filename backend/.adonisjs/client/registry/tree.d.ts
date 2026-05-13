@@ -21,4 +21,7 @@ export interface ApiDefinition {
   contaCorrente: {
     store: typeof routes['conta_corrente.store']
   }
+  users: {
+    listarClientes: typeof routes['users.listar_clientes']
+  }
 }

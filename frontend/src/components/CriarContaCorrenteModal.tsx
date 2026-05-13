@@ -1,4 +1,5 @@
 import { useState, useEffect, type FormEvent } from "react";
+import { Client } from "../../api/api";
 
 interface Cliente {
   id: string | number;
@@ -15,14 +16,14 @@ interface ContaForm {
   numeroConta: string;
   numeroAgencia: string;
   saldo: string;
-  clienteId: string;
+  clienteId: number;
 }
 
 const initialForm: ContaForm = {
   numeroConta: "",
   numeroAgencia: "",
   saldo: "",
-  clienteId: "",
+  clienteId: 0,
 };
 
 export default function CriarContaCorrenteModal({
@@ -41,9 +42,13 @@ export default function CriarContaCorrenteModal({
       setLoadingClientes(true);
       try {
         // Substitua pela URL real da sua API
-        const response = await fetch("/api/clientes");
-        if (!response.ok) throw new Error("Erro ao buscar clientes.");
-        const data: Cliente[] = await response.json();
+        const response = await Client.get("/listarClientes");
+        if (response.status !== 200) throw new Error("Erro ao buscar clientes.");
+        console.log("RESPOSTA "+JSON.stringify(response.data));
+        
+        const data: Cliente[] = await JSON.parse(response.data);
+        console.log("VETOR "+data.toString());
+        
         setClientes(data);
       } catch {
         setError("Não foi possível carregar a lista de clientes.");

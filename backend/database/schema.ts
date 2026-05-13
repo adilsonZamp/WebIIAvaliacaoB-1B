@@ -52,10 +52,12 @@ export class ContaCorrenteSchema extends BaseModel {
 }
 
 export class UserSchema extends BaseModel {
-  static $columns = ['cidade', 'createdAt', 'email', 'estado', 'id', 'nome', 'numero', 'password', 'rua', 'tipo', 'updatedAt'] as const
+  static $columns = ['cidade', 'cpf', 'createdAt', 'email', 'estado', 'id', 'nome', 'numero', 'password', 'rua', 'tipo', 'updatedAt'] as const
   $columns = UserSchema.$columns
   @column()
   declare cidade: string | null
+  @column()
+  declare cpf: string
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
   @column()
