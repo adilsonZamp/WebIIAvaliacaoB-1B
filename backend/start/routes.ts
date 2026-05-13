@@ -12,7 +12,7 @@ import router from '@adonisjs/core/services/router'
 import { controllers } from '#generated/controllers'
 
 router.get('/', () => {
-  return { hello: 'world' }
+  return { hello: 'dev' }
 })
 
 router
@@ -29,6 +29,10 @@ router
         router.get('profile', [controllers.Profile, 'show'])
         router.post('logout', [controllers.AccessTokens, 'destroy'])
       })
-      .as('profile')
+      .as('logado')
       .use(middleware.auth())
+
+    router.group(() => {
+      router.post('criarContaCorrente', [controllers.ContaCorrente, 'store']).use(middleware.auth())
+    })
   })

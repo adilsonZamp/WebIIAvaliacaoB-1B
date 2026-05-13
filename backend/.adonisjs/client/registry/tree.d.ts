@@ -10,12 +10,15 @@ export interface ApiDefinition {
       store: typeof routes['auth.access_tokens.store']
     }
   }
-  profile: {
+  logado: {
     profile: {
-      show: typeof routes['profile.profile.show']
+      show: typeof routes['logado.profile.show']
     }
     accessTokens: {
-      destroy: typeof routes['profile.access_tokens.destroy']
+      destroy: typeof routes['logado.access_tokens.destroy']
     }
+  }
+  contaCorrente: {
+    store: typeof routes['conta_corrente.store']
   }
 }

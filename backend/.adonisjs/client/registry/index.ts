@@ -18,17 +18,23 @@ const routes = {
     tokens: [{"old":"/login","type":0,"val":"login","end":""}],
     types: placeholder as Registry['auth.access_tokens.store']['types'],
   },
-  'profile.profile.show': {
+  'logado.profile.show': {
     methods: ["GET","HEAD"],
     pattern: '/profile',
     tokens: [{"old":"/profile","type":0,"val":"profile","end":""}],
-    types: placeholder as Registry['profile.profile.show']['types'],
+    types: placeholder as Registry['logado.profile.show']['types'],
   },
-  'profile.access_tokens.destroy': {
+  'logado.access_tokens.destroy': {
     methods: ["POST"],
     pattern: '/logout',
     tokens: [{"old":"/logout","type":0,"val":"logout","end":""}],
-    types: placeholder as Registry['profile.access_tokens.destroy']['types'],
+    types: placeholder as Registry['logado.access_tokens.destroy']['types'],
+  },
+  'conta_corrente.store': {
+    methods: ["POST"],
+    pattern: '/criarContaCorrente',
+    tokens: [{"old":"/criarContaCorrente","type":0,"val":"criarContaCorrente","end":""}],
+    types: placeholder as Registry['conta_corrente.store']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

@@ -79,7 +79,7 @@ export default function CadastrarClienteModal({
 
 		setLoading(true);
 		try {
-			const response = await Client.post('/signup', {
+			await Client.post('/signup', {
 				nome: nomeCompleto,
 				email: email,
 				password: senha,

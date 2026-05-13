@@ -31,7 +31,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/access_tokens_controller').default['store']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
-  'profile.profile.show': {
+  'logado.profile.show': {
     methods: ["GET","HEAD"]
     pattern: '/profile'
     types: {
@@ -43,7 +43,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/profile_controller').default['show']>>>
     }
   }
-  'profile.access_tokens.destroy': {
+  'logado.access_tokens.destroy': {
     methods: ["POST"]
     pattern: '/logout'
     types: {
@@ -53,6 +53,18 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/access_tokens_controller').default['destroy']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/access_tokens_controller').default['destroy']>>>
+    }
+  }
+  'conta_corrente.store': {
+    methods: ["POST"]
+    pattern: '/criarContaCorrente'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#validators/conta_corrente').criarContaCorrenteValidator)>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#validators/conta_corrente').criarContaCorrenteValidator)>>
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/conta_corrente_controller').default['store']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/conta_corrente_controller').default['store']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
 }

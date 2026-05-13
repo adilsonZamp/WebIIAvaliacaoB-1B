@@ -32,6 +32,25 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class ContaCorrenteSchema extends BaseModel {
+  static $columns = ['createdAt', 'digito', 'id', 'idUsuario', 'numeroAgencia', 'saldo', 'updatedAt'] as const
+  $columns = ContaCorrenteSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column()
+  declare digito: number
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare idUsuario: number
+  @column()
+  declare numeroAgencia: number
+  @column()
+  declare saldo: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['cidade', 'createdAt', 'email', 'estado', 'id', 'nome', 'numero', 'password', 'rua', 'tipo', 'updatedAt'] as const
   $columns = UserSchema.$columns
@@ -46,7 +65,7 @@ export class UserSchema extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
   @column()
-  declare nome: string | null
+  declare nome: string
   @column()
   declare numero: string | null
   @column({ serializeAs: null })
