@@ -5,7 +5,7 @@ import { Client, removeToken } from "../../../api/api";
 import { useNavigate } from "react-router-dom";
 import { getDataUser, removeDataUser } from "../../services/UserService";
 
-// Dados do gerente logado — substitua pelo contexto de autenticação real
+// Dados do gerente logado — usar context
 interface Gerente {
 	nome: string;
 	agencia: string;

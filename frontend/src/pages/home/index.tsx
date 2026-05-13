@@ -342,7 +342,7 @@ export default function ClienteHomePage() {
                                 (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 1px 4px rgba(0,0,0,0.05)";
                                 (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
                             }}
-                            // Substitua pelo navigate("/aplicacoes") do seu roteador
+                            //navigate para a tela de investimentos
                             onClick={() => alert("Navegar para tela de aplicações")}
                         >
                             <span
