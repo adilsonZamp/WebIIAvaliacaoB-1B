@@ -9,15 +9,15 @@ export type ScannedRoutes = {
     'logado.profile.show': { paramsTuple?: []; params?: {} }
     'logado.access_tokens.destroy': { paramsTuple?: []; params?: {} }
     'conta_corrente.store': { paramsTuple?: []; params?: {} }
-    'users.listar_clientes': { paramsTuple?: []; params?: {} }
+    'users.listar_clientes_sem_conta': { paramsTuple?: []; params?: {} }
   }
   GET: {
     'logado.profile.show': { paramsTuple?: []; params?: {} }
-    'users.listar_clientes': { paramsTuple?: []; params?: {} }
+    'users.listar_clientes_sem_conta': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'logado.profile.show': { paramsTuple?: []; params?: {} }
-    'users.listar_clientes': { paramsTuple?: []; params?: {} }
+    'users.listar_clientes_sem_conta': { paramsTuple?: []; params?: {} }
   }
   POST: {
     'auth.new_account.store': { paramsTuple?: []; params?: {} }

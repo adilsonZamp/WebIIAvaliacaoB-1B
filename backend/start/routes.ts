@@ -34,6 +34,6 @@ router
 
     router.group(() => {
       router.post('criarContaCorrente', [controllers.ContaCorrente, 'store'])
-      router.get('listarClientes', [controllers.Users, 'listarClientes'])
+      router.get('listarClientes', [controllers.Users, 'listarClientesSemConta'])
     }).use(middleware.auth())
   })

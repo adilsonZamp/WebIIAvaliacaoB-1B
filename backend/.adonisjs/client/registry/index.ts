@@ -36,11 +36,11 @@ const routes = {
     tokens: [{"old":"/criarContaCorrente","type":0,"val":"criarContaCorrente","end":""}],
     types: placeholder as Registry['conta_corrente.store']['types'],
   },
-  'users.listar_clientes': {
+  'users.listar_clientes_sem_conta': {
     methods: ["GET","HEAD"],
     pattern: '/listarClientes',
     tokens: [{"old":"/listarClientes","type":0,"val":"listarClientes","end":""}],
-    types: placeholder as Registry['users.listar_clientes']['types'],
+    types: placeholder as Registry['users.listar_clientes_sem_conta']['types'],
   },
 } as const satisfies Record<string, AdonisEndpoint>
 

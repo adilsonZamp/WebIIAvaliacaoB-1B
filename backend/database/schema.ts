@@ -38,13 +38,13 @@ export class ContaCorrenteSchema extends BaseModel {
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
   @column()
-  declare digito: number
+  declare digito: string
   @column({ isPrimary: true })
   declare id: number
   @column()
   declare idUsuario: number
   @column()
-  declare numeroAgencia: number
+  declare numeroAgencia: string
   @column()
   declare saldo: number
   @column.dateTime({ autoCreate: true, autoUpdate: true })
